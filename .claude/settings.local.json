@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -l \"class=\"\"hamburger\"\"\" d:/WED/*.html)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(sed -i 's|<ul class=\"\"nav-links\"\">|<div class=\"\"hamburger\"\" id=\"\"hamburger\"\">\\\\n                <span></span>\\\\n                <span></span>\\\\n                <span></span>\\\\n            </div>\\\\n            <ul class=\"\"nav-links\"\">|' \"$f\")",
+      "Bash(sed -i 's|<button class=\"\"theme-toggle\"\" id=\"\"themeToggle\"\">🌙</button>\\\\n            <div class=\"\"hamburger\"\" id=\"\"hamburger\"\">|<button class=\"\"theme-toggle\"\" id=\"\"themeToggle\"\">🌙</button>|' \"$f\")",
+      "Bash(done)",
+      "Bash(node -e \":*)",
+      "Bash(do echo:*)",
+      "Bash(mvn spring-boot:run)"
+    ]
+  }
+}

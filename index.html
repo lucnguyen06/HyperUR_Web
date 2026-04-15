@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyperUR</title>
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="translations.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">HyperUR</a></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home" data-i18n="nav.home">Trang chủ</a></li>
+                <li><a href="serial.html" data-i18n="nav.register">Activation Serial</a></li>
+                <li><a href="download.html" data-i18n="nav.download">Tải xuống</a></li>
+                <li><a href="support.html" data-i18n="nav.support">Ủng hộ</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle"></button>
+            <button class="lang-toggle" id="langToggle">EN</button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>
+            <span class="hyper">Hyper</span><span class="mods">UR</span>
+        </h1>
+        <p class="subtitle" data-i18n="hero.subtitle">HyperUR - Rom được phát triển bởi USAGI và RIO</p>
+        <div class="hero-buttons">
+            <a href="#info" class="btn btn-primary" data-i18n="hero.btn.download">Tải ROM ngay</a>
+            <a href="#info" class="btn btn-secondary" data-i18n="hero.btn.register">Activation Serial</a>
+            <a href="#info" class="btn btn-tertiary" data-i18n="hero.btn.support">Ủng hộ dự án</a>
+        </div>
+    </section>
+
+    <!-- Intro / Features Detail Section -->
+    <section class="intro-section" id="features">
+        <div class="intro-content">
+            <h2 class="section-title" data-i18n="intro.title">🔥 HyperUR ROM – Phiên Bản Hybrid Tối Ưu Toàn Diện</h2>
+            <p class="intro-desc" data-i18n="intro.desc">HyperUR không chỉ là một bản ROM, mà là nền tảng tùy biến toàn diện do cộng đồng phát triển, hướng tới hiệu năng mạnh mẽ, bảo mật ổn định và trải nghiệm cá nhân hóa đỉnh cao.</p>
+
+            <!-- Commitments -->
+            <div class="commitments">
+                <h3 data-i18n="commitments.title">🌟 Cam Kết Từ HyperUR</h3>
+                <div class="commitment-grid">
+                    <div class="commitment-item">
+                        <span class="commitment-icon">⚡</span>
+                        <div>
+                            <h4 data-i18n="commitments.performance.title">ROM Hiệu Năng Cao</h4>
+                            <p data-i18n="commitments.performance.desc">Tinh chỉnh chuyên sâu, giảm giật lag, tăng tốc độ xử lý và đảm bảo tương thích với nhiều dòng máy Snapdragon.</p>
+                        </div>
+                    </div>
+                    <div class="commitment-item">
+                        <span class="commitment-icon">🔒</span>
+                        <div>
+                            <h4 data-i18n="commitments.safety.title">An Toàn & Ổn Định</h4>
+                            <p data-i18n="commitments.safety.desc">Mọi bản ROM đều được kiểm thử kỹ lưỡng, giữ nguyên độ tin cậy, không ảnh hưởng bảo mật thiết bị.</p>
+                        </div>
+                    </div>
+                    <div class="commitment-item">
+                        <span class="commitment-icon">🔄</span>
+                        <div>
+                            <h4 data-i18n="commitments.update.title">Cập Nhật Nhanh</h4>
+                            <p data-i18n="commitments.update.desc">Luôn cập nhật các bản vá bảo mật, tính năng mới và tối ưu cho thiết bị đời mới.</p>
+                        </div>
+                    </div>
+                    <div class="commitment-item">
+                        <span class="commitment-icon">🛠</span>
+                        <div>
+                            <h4 data-i18n="commitments.support.title">Hỗ Trợ Toàn Diện</h4>
+                            <p data-i18n="commitments.support.desc">Đội ngũ kỹ thuật và cộng đồng luôn sẵn sàng hỗ trợ cài đặt, khôi phục, giải đáp thắc mắc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Detail -->
+            <div class="features-detail">
+                <h3 data-i18n="features.title">🚀 Tính Năng Nổi Bật – HyperUR Hybrid ROM</h3>
+                <div class="feature-detail-grid">
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon">🔗</div>
+                        <h4 data-i18n="features.hybrid.title">Hybrid ROM</h4>
+                        <p data-i18n="features.hybrid.desc">Kết hợp sự ổn định của ROM gốc với tùy biến mở rộng, mang lại trải nghiệm mượt mà và đầy đủ công cụ cho người dùng nâng cao.</p>
+                    </div>
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon">🎮</div>
+                        <h4 data-i18n="features.gaming.title">Gaming Mode Tối Ưu</h4>
+                        <p data-i18n-html="features.gaming.desc">Mở khóa FPS cao cho các tựa game: PUBG / BGMI, Free Fire, Call of Duty, COD Warzone...<br>Tối ưu quản lý RAM & GPU, giảm nhiệt, ổn định khung hình.</p>
+                    </div>
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon">📱</div>
+                        <h4 data-i18n="features.refresh.title">Hỗ Trợ Tần Số Quét Linh Hoạt</h4>
+                        <p data-i18n-html="features.refresh.desc">1Hz / 60Hz / 90Hz / 120Hz<br>Ép 120Hz cho mọi ứng dụng – trải nghiệm siêu mượt toàn hệ thống.</p>
+                    </div>
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon">☁️</div>
+                        <h4 data-i18n="features.photos.title">Sao Lưu Google Photos Không Giới Hạn</h4>
+                        <p data-i18n="features.photos.desc">Tự do lưu trữ ảnh/video mà không lo giới hạn dung lượng.</p>
+                    </div>
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon">🔧</div>
+                        <h4 data-i18n="features.corepatch.title">CorePatch & Tắt Cờ Bảo Mật</h4>
+                        <p data-i18n-html="features.corepatch.desc">Mở rộng khả năng tùy biến hệ thống.<br>Mod thoải mái, không bị giới hạn bởi bảo mật.</p>
+                    </div>
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon">🪟</div>
+                        <h4 data-i18n="features.multitask.title">Đa Nhiệm Thông Minh</h4>
+                        <p data-i18n-html="features.multitask.desc">Multi-window – mở nhiều cửa sổ cùng lúc.<br>AOD nâng cao với giao diện màn hình khóa tùy chỉnh.</p>
+                    </div>
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon">📅</div>
+                        <h4 data-i18n="features.ui.title">Tiện Ích Giao Diện</h4>
+                        <p data-i18n-html="features.ui.desc">Lịch Âm tích hợp ngay trong Trung tâm điều khiển.<br>Nhiều tính năng thử nghiệm trong HyperUR Lab.</p>
+                    </div>
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon"><img src="images/logo_toolbox.jpg" alt="Kaorios-Toolbox" style="width:32px;height:32px;border-radius:6px;object-fit:contain;" onerror="this.style.display='none'"></div>
+                        <h4>Kaorios-Toolbox</h4>
+                        <p data-i18n-html="features.toolbox.desc">Play Integrity fix • Pixel & properties spoofing • Per-app spoofing manager • Google Photos unlimited backup • Payload dumper integration • Unlock high-FPS modes in games • Modify app data files safely • Overlay display for FPS and CPU.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Apps Section -->
+            <div class="apps-section">
+                <h3 data-i18n="apps.title">📦 Ứng Dụng Được Mod & Tích Hợp</h3>
+                <div class="apps-grid">
+                    <span class="app-tag">FileExplorer</span>
+                    <span class="app-tag">Joyose</span>
+                    <span class="app-tag">MiMediaEditor</span>
+                    <span class="app-tag">MiuiExtraPhoto</span>
+                    <span class="app-tag">MiuiGallery</span>
+                    <span class="app-tag">MiuiHome</span>
+                    <span class="app-tag">MiuiPackageInstaller</span>
+                    <span class="app-tag">MiuiScanner</span>
+                    <span class="app-tag">MiuiScreenRecorder</span>
+                    <span class="app-tag">MiuiScreenshot</span>
+                    <span class="app-tag">MiuiSystemUIPlugin</span>
+                    <span class="app-tag">Notes</span>
+                    <span class="app-tag">PowerKeeper</span>
+                    <span class="app-tag">SecurityCenter</span>
+                    <span class="app-tag">SoundRecorder</span>
+                    <span class="app-tag">Weather</span>
+                </div>
+            </div>
+
+            <!-- Credits Section -->
+            <div class="credits-section">
+                <h3 data-i18n="credits.title">👨‍💻 Credit & App Mod Source</h3>
+                <div class="credits-grid">
+                    <div class="credit-item">
+                        <span class="credit-icon">🎨</span>
+                        <strong data-i18n="credits.mods.title">Mods Center (kakashi)</strong>
+                        <p data-i18n="credits.mods.desc">Tùy biến & mở rộng hệ thống</p>
+                    </div>
+                    <div class="credit-item">
+                        <span class="credit-icon">🦁</span>
+                        <strong data-i18n="credits.llions.title">LLions Mods</strong>
+                        <p data-i18n="credits.llions.desc">Các mod tiện ích nâng cao</p>
+                    </div>
+                    <div class="credit-item">
+                        <span class="credit-icon">🏠</span>
+                        <strong data-i18n="credits.xiaomieu.title">XIAOMI CHINA</strong>
+                        <p data-i18n="credits.xiaomieu.desc">Nguồn firmware gốc (stock) từ Xiaomi China</p>
+                    </div>
+                    <div class="credit-item">
+                        <span class="credit-icon">🚀</span>
+                        <strong data-i18n="credits.hyperur.title">HyperUR Team</strong>
+                        <p data-i18n="credits.hyperur.desc">Tinh chỉnh, tối ưu, tích hợp mod</p>
+                    </div>
+                    <div class="credit-item">
+                        <span class="credit-icon">💀</span>
+                        <strong data-i18n="credits.mebey.title">Mebey sth useless</strong>
+                        <p data-i18n="credits.mebey.desc">MiuiHome, MiuiSystemUIPluginUI...</p>
+                    </div>
+                    <div class="credit-item">
+                        <span class="credit-icon"><img src="images/logo_toolbox.jpg" alt="Kaorios-Toolbox" style="width:36px;height:36px;border-radius:6px;object-fit:contain;" onerror="this.style.display='none'"></span>
+                        <strong>Kaorios-Toolbox</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support Section -->
+            <div class="support-section">
+                <h3 data-i18n="support.title">💡 Hỗ Trợ Thiết Bị & Nền Tảng</h3>
+                <div class="support-info">
+                    <div class="support-item">
+                        <strong data-i18n="support.os.label">Hệ điều hành:</strong>
+                        <span data-i18n="support.os.value">HyperOS 1.0 (Android 14), HyperOS 2.0 (Android 14 – 15), HyperOS 3.0 (Android 15 – 16)</span>
+                    </div>
+                    <div class="support-item">
+                        <strong data-i18n="support.devices.label">Thiết bị hỗ trợ:</strong>
+                        <span data-i18n="support.devices.value">Toàn bộ dòng máy Snapdragon (cập nhật liên tục)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h3 data-i18n="cta.title">✅ HyperUR ROM – Lựa Chọn Hoàn Hảo Cho</h3>
+                <div class="cta-grid">
+                    <div class="cta-item">
+                        <span class="cta-icon">🎮</span>
+                        <p data-i18n="cta.gamer">Game thủ muốn FPS cao, 120Hz toàn hệ thống</p>
+                    </div>
+                    <div class="cta-item">
+                        <span class="cta-icon">📱</span>
+                        <p data-i18n="cta.miui">Người dùng yêu MIUI mở rộng nhưng vẫn cần độ mượt, ổn định</p>
+                    </div>
+                    <div class="cta-item">
+                        <span class="cta-icon">🛡</span>
+                        <p data-i18n="cta.clean">Người dùng thích ROM sạch, tối ưu, không giới hạn, đầy đủ tiện ích mod</p>
+                    </div>
+                </div>
+                <p class="cta-tagline" data-i18n="cta.tagline">👉 HyperUR Hybrid ROM – Khi hiệu năng, sự tự do và cá nhân hóa cùng hội tụ!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Grid -->
+    <section class="core-features">
+        <h2 class="section-title" data-i18n="core.title">Tính năng cốt lõi</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3 data-i18n="core.perf.title">Hiệu năng vượt trội</h3>
+                <p data-i18n="core.perf.desc">Tinh chỉnh hệ thống sâu để tăng tốc độ xử lý, giảm độ trễ và tối ưu RAM/CPU.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3 data-i18n="core.gaming.title">Chế độ Gaming tối ưu</h3>
+                <p data-i18n="core.gaming.desc">Hạn chế giật lag, giảm nhiệt và tăng FPS ổn định khi chơi game.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3 data-i18n="core.custom.title">Tùy biến linh hoạt</h3>
+                <p data-i18n="core.custom.desc">Giao diện, hiệu ứng, icon, banner… có thể được cá nhân hóa theo phong cách riêng.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3 data-i18n="core.safe.title">An toàn & ổn định</h3>
+                <p data-i18n="core.safe.desc">Giữ lại tính tương thích và bảo mật của ROM gốc, đồng thời loại bỏ bloatware thừa.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3 data-i18n="core.ext.title">Hỗ trợ mở rộng</h3>
+                <p data-i18n="core.ext.desc">Dễ dàng kết hợp với các patch và mod khác từ cộng đồng.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="info-section" id="info">
+        <h2 class="section-title" data-i18n="info.title">Thông tin</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-card-icon">📦</div>
+                <h3 data-i18n="info.firmware.title">Firmware</h3>
+                <p data-i18n-html="info.firmware.desc">Thông tin phiên bản<br>Firmware được đóng gói lại từ Xiaomi.eu.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-icon">📱</div>
+                <h3 data-i18n="info.rom.title">ROM</h3>
+                <p data-i18n-html="info.rom.desc">Tải ROM an toàn<br>Tốc độ tải ổn định.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-icon">🔑</div>
+                <h3 data-i18n="info.serial.title">Activation Serial</h3>
+                <p data-i18n-html="info.serial.desc">Quản lý thiết bị<br>Activation Serial để nhận thông báo cập nhật phù hợp.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p class="dev-info" data-i18n="footer.copyright">© 2025 HyperUR Hub. All rights reserved.</p>
+        <p>Dev ROM: <a href="https://t.me/Usagi79" target="_blank" style="color:#60a5fa;">Usagi79</a> • <a href="https://t.me/lcnguy06" target="_blank" style="color:#60a5fa;">lcnguy06</a> • <a href="https://t.me/hypermodupdate" target="_blank" style="color:#60a5fa;">Huper Ultra Rate | Channel</a> • <a href="https://t.me/HuperUltraRateChat" target="_blank" style="color:#60a5fa;">Huper Ultra Rate | Chat</a></p>
+        <p class="contact-msg" data-i18n="footer.contact">Nếu có lỗi về ROM, vui lòng liên hệ Dev ngay để được khắc phục kịp thời.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

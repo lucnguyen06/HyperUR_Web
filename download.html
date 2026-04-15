@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tải xuống - HyperUR</title>
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="translations.js"></script>
+    <style>
+        .download-page {
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+
+        /* Downloads Hero */
+        .downloads-hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .downloads-hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .downloads-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .downloads-hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Tool Download Card */
+        .tool-download-section {
+            padding: 0 2rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tool-download-card {
+            background: var(--card-bg);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 136, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            transition: all 0.3s ease;
+        }
+
+        .tool-download-card:hover {
+            border-color: var(--accent-green);
+            box-shadow: var(--glow-green);
+        }
+
+        .tool-download-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .tool-download-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .tool-download-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+            margin-bottom: 0.3rem;
+        }
+
+        .tool-download-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .btn-tool-download {
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .btn-tool-download:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-green);
+        }
+
+        /* Search & Filter Bar */
+        .search-filter-section {
+            padding: 0 2rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .search-filter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 136, 0.15);
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            gap: 0.8rem;
+            flex: 1;
+            min-width: 280px;
+            max-width: 500px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus-within {
+            border-color: var(--accent-green);
+            box-shadow: var(--glow-green);
+        }
+
+        .search-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            font-family: 'Exo 2', sans-serif;
+            font-size: 0.95rem;
+            width: 100%;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .filter-info {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Category Tabs */
+        .slider-header {
+            margin-bottom: 2rem;
+        }
+
+        .slider-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--accent-green);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category-tab {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            background: transparent;
+            color: var(--accent-cyan);
+            font-family: 'Exo 2', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-tab:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .category-tab.active {
+            background: var(--accent-cyan);
+            color: var(--primary);
+            border-color: var(--accent-cyan);
+        }
+
+        /* Device Slider */
+        .device-slider-section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .device-slider-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .device-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .device-card {
+            background: var(--card-bg);
+            padding: 0;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .device-card:hover {
+            border-color: var(--accent-green);
+            box-shadow: var(--glow-green);
+            transform: translateY(-5px);
+        }
+
+        .device-card-image {
+            width: 100%;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 212, 255, 0.05));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .device-card-image img {
+            max-width: 100%;
+            max-height: 120px;
+            object-fit: contain;
+        }
+
+        .device-card-image .device-fallback-icon {
+            font-size: 3.5rem;
+            opacity: 0.6;
+        }
+
+        .device-card-body {
+            padding: 1rem 1.2rem;
+        }
+
+        .device-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            gap: 0.5rem;
+        }
+
+        .device-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            color: var(--accent-cyan);
+        }
+
+        .device-codename {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+        }
+
+        .device-badge {
+            padding: 0.25rem 0.6rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .badge-new {
+            background: rgba(0, 255, 136, 0.15);
+            color: var(--accent-green);
+        }
+
+        .badge-update {
+            background: rgba(0, 212, 255, 0.15);
+            color: var(--accent-cyan);
+        }
+
+        .device-card-status {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+        }
+
+        .device-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+        }
+
+        .device-card-meta {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .device-card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* ROM List per device */
+        .rom-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .rom-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.6rem;
+            padding: 0.5rem 0.7rem;
+            background: rgba(0, 255, 136, 0.03);
+            border: 1px solid rgba(0, 255, 136, 0.08);
+            border-radius: 8px;
+            flex-wrap: wrap;
+            transition: border-color 0.2s ease;
+        }
+
+        .rom-row:hover {
+            border-color: rgba(0, 255, 136, 0.2);
+        }
+
+        .rom-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .rom-version {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+        }
+
+        .rom-base {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            background: rgba(0, 212, 255, 0.12);
+            color: var(--accent-cyan);
+        }
+
+        .rom-android {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+        }
+
+        .rom-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+
+        .rom-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .rom-btn {
+            padding: 0.35rem 0.8rem !important;
+            font-size: 0.78rem !important;
+            flex-shrink: 0;
+        }
+
+        .rom-coming-soon {
+            text-align: center;
+            padding: 0.8rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        /* Adjust card body for ROM list */
+        .device-card-body {
+            padding: 0.8rem 1rem 1rem;
+        }
+
+        .device-card-body > p {
+            display: none;
+        }
+
+        .device-card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            color: var(--primary);
+        }
+
+        .device-card-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-green);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 2rem 0 1rem;
+            flex-wrap: wrap;
+        }
+
+        .pagination-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            height: 40px;
+            padding: 0 0.6rem;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            background: transparent;
+            color: var(--accent-cyan);
+            font-family: 'Exo 2', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+
+        .pagination-btn:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .pagination-btn.active {
+            background: var(--accent-cyan);
+            color: var(--primary);
+            border-color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .pagination-btn.disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .pagination-ellipsis {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 0 0.3rem;
+        }
+
+        .pagination-info {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Info Cards Row */
+        .info-cards-section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-cards-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-cards-row .card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .info-cards-row .card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .info-cards-row .card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .guide-list {
+            list-style: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .guide-list li {
+            padding-left: 0;
+        }
+
+        .guide-warning {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: rgba(255, 170, 0, 0.08);
+            border-radius: 8px;
+            border-left: 3px solid #ffaa00;
+            font-size: 0.85rem;
+            color: #ffaa00;
+        }
+
+        .info-list {
+            list-style: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .info-list strong {
+            color: var(--accent-cyan);
+        }
+
+        .support-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .btn-contact {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-contact:hover {
+            background: var(--accent-cyan);
+            color: var(--primary);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .modal-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent-green);
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-green);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            background: var(--background);
+            color: var(--text-primary);
+            font-family: 'Exo 2', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .form-actions .btn {
+            flex: 1;
+            padding: 0.8rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-family: 'Exo 2', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .form-actions .btn-primary {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            color: var(--primary);
+        }
+
+        .form-actions .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .form-actions .btn-outline:hover {
+            background: var(--accent-cyan);
+            color: var(--primary);
+        }
+
+        /* Warning Section */
+        .warning-section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .warning-card {
+            background: rgba(255, 170, 0, 0.05);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 170, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .warning-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #ffaa00;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .warning-card ul {
+            list-style: none;
+            color: var(--text-secondary);
+        }
+
+        .warning-card li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .warning-card li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Requirements */
+        .requirements-section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .requirements-section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent-green);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .requirement-item {
+            background: var(--card-bg);
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .requirement-item:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .requirement-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .requirement-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Serial Section */
+        .serial-section {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .serial-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .serial-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .serial-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-serial {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .btn-serial:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-green);
+        }
+
+        @media (max-width: 768px) {
+            .downloads-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .tool-download-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .tool-download-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                max-width: 100%;
+            }
+
+            .category-tabs {
+                gap: 0.4rem;
+            }
+
+            .category-tab {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .device-slider {
+                grid-template-columns: 1fr;
+            }
+
+            .info-cards-row {
+                grid-template-columns: 1fr;
+            }
+
+            .requirements-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">HyperUR</a></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav.home">Trang chủ</a></li>
+                <li><a href="serial.html" data-i18n="nav.register">Activation Serial</a></li>
+                <li><a href="download.html" class="active" data-i18n="nav.download">Tải xuống</a></li>
+                <li><a href="support.html" data-i18n="nav.support">Ủng hộ</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle"></button>
+            <button class="lang-toggle" id="langToggle">EN</button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="download-page">
+        <!-- Downloads Hero -->
+        <section class="downloads-hero">
+            <h1 data-i18n="download.hero.title">Tải HyperUR ROM</h1>
+            <p class="downloads-hero-subtitle" data-i18n-html="download.hero.subtitle">
+                Chọn đúng dòng máy và base ROM hiện tại để đảm bảo quá trình flash an toàn.<br>
+                Mỗi bản ROM được tối ưu riêng cho từng thiết bị.
+            </p>
+        </section>
+
+        <!-- Search & Filter -->
+        <section class="search-filter-section">
+            <div class="search-filter-bar">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input
+                        type="text"
+                        id="device-search"
+                        class="search-input"
+                        data-i18n-placeholder="download.search.placeholder"
+                        placeholder="Tìm kiếm thiết bị hoặc codename..."
+                    />
+                </div>
+                <div class="filter-info">
+                    <span id="device-count">0 <span data-i18n="download.devices">thiết bị</span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Device Slider Section -->
+        <section class="device-slider-section">
+            <div class="slider-header">
+                <h2 data-i18n="download.slider.title">📱 Danh sách ROM theo thiết bị</h2>
+                <div class="category-tabs" id="category-tabs">
+                    <button class="category-tab active" data-category="all" data-i18n="download.tab.all">Tất cả</button>
+                    <button class="category-tab" data-category="xiaomi" data-i18n="download.tab.xiaomi">Xiaomi</button>
+                    <button class="category-tab" data-category="pad" data-i18n="download.tab.pad">Pad</button>
+                    <button class="category-tab" data-category="mix" data-i18n="download.tab.mix">MIX</button>
+                    <button class="category-tab" data-category="civi" data-i18n="download.tab.civi">Civi</button>
+                    <button class="category-tab" data-category="redmi" data-i18n="download.tab.redmi">Redmi</button>
+                    <button class="category-tab" data-category="redmi-note" data-i18n="download.tab.note">Note</button>
+                    <button class="category-tab" data-category="redmi-k" data-i18n="download.tab.kseries">K Series</button>
+                    <button class="category-tab" data-category="poco" data-i18n="download.tab.poco">POCO</button>
+                </div>
+            </div>
+
+            <div class="device-slider" id="device-slider">
+                <!-- Device cards rendered by JS -->
+            </div>
+
+            <div id="no-results" class="no-results" style="display: none;">
+                <p data-i18n="download.noResults">😕 Không tìm thấy thiết bị nào phù hợp.</p>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination"></div>
+        </section>
+
+        <!-- Warning Card -->
+        <section class="warning-section">
+            <div class="warning-card">
+                <h3 data-i18n="download.warning.title">⚠️ Lưu ý quan trọng</h3>
+                <ul>
+                    <li data-i18n="download.warning.1">Flash ROM sẽ xóa toàn bộ dữ liệu. Hãy sao lưu trước khi tiến hành.</li>
+                    <li data-i18n="download.warning.2">Đảm bảo pin trên 50% để tránh brick thiết bị.</li>
+                    <li data-i18n="download.warning.3">Chỉ tải ROM từ các nguồn chính thức để đảm bảo an toàn.</li>
+                    <li data-i18n="download.warning.4">Nếu không chắc chắn, vui lòng liên hệ hỗ trợ trước khi flash.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Requirements -->
+        <section class="requirements-section">
+            <h2 data-i18n="download.requirements.title">🖥️ Yêu cầu hệ thống</h2>
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <span class="requirement-icon">💻</span>
+                    <p data-i18n="download.requirements.win">Windows 10 trở lên</p>
+                </div>
+                <div class="requirement-item">
+                    <span class="requirement-icon">🔌</span>
+                    <p data-i18n="download.requirements.usb">Cáp USB chất lượng</p>
+                </div>
+                <div class="requirement-item">
+                    <span class="requirement-icon">🔋</span>
+                    <p data-i18n="download.requirements.battery">Pin trên 50%</p>
+                </div>
+                <div class="requirement-item">
+                    <span class="requirement-icon">💾</span>
+                    <p data-i18n="download.requirements.storage">5GB dung lượng trống</p>
+                </div>
+                <div class="requirement-item">
+                    <span class="requirement-icon">🛡️</span>
+                    <p data-i18n="download.requirements.backup">Backup dữ liệu</p>
+                </div>
+                <div class="requirement-item">
+                    <span class="requirement-icon">🔓</span>
+                    <p data-i18n="download.requirements.bl">Unlocked Bootloader</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Serial Section -->
+        <section class="serial-section">
+            <div class="serial-card">
+                <h3 data-i18n="download.serial.title">🔑 Activation Serial</h3>
+                <p data-i18n="download.serial.desc">Activation Serial để nhận thông báo cập nhật và hỗ trợ riêng cho thiết bị của bạn.</p>
+                <a href="serial.html" class="btn-serial" data-i18n="download.serial.btn">🔑 Activation Serial</a>
+            </div>
+        </section>
+
+        <!-- Info Cards Row -->
+        <section class="info-cards-section">
+            <div class="info-cards-row">
+                <div class="card">
+                    <h3 data-i18n="download.guide.title">📋 Hướng dẫn cài đặt nhanh</h3>
+                    <ol class="guide-list">
+                        <li data-i18n="download.guide.1">Sao lưu toàn bộ dữ liệu quan trọng.</li>
+                        <li data-i18n="download.guide.2">Mở khoá bootloader & cài custom recovery (TWRP / OFRP).</li>
+                        <li data-i18n="download.guide.3">Wipe data, cache, system theo hướng dẫn từng dòng máy.</li>
+                        <li data-i18n="download.guide.4">Flash bản HyperUR ROM tương ứng.</li>
+                        <li data-i18n="download.guide.5">Reboot & chờ máy khởi động lại lần đầu.</li>
+                    </ol>
+                    <p class="guide-warning" data-i18n="download.guide.warning">
+                        ⚠️ Việc can thiệp hệ thống luôn tiềm ẩn rủi ro. Bạn tự chịu trách nhiệm với thiết bị của mình.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="download.version.title">ℹ️ Thông tin phiên bản</h3>
+                    <ul class="info-list">
+                        <li><strong data-i18n="download.version.hyperos">HyperOS:</strong> 1.0, 2.0, 3.0</li>
+                        <li><strong data-i18n="download.version.android">Android:</strong> 14, 15, 16</li>
+                        <li><strong data-i18n="download.version.chip">Chip:</strong> Snapdragon</li>
+                        <li><strong data-i18n="download.version.base">Base:</strong> CN, EU, Global</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="download.support.title">💬 Cần hỗ trợ?</h3>
+                    <p data-i18n="download.support.desc">Liên hệ team qua Telegram để được hỗ trợ cài đặt và fix lỗi.</p>
+                    <div class="support-actions">
+                        <a class="btn-contact" href="https://t.me/Usagi79" target="_blank" rel="noopener noreferrer">
+                            @Usagi79
+                        </a>
+                        <a class="btn-contact" href="https://t.me/lcnguy06" target="_blank" rel="noopener noreferrer">
+                            @lcnguy06
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal Serial -->
+    <div class="modal-overlay" id="modal-serial">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 data-i18n="download.modal.title">Activation Serial</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="serial-form">
+                    <div class="form-group">
+                        <label for="serial-input" data-i18n="download.modal.serial.label">Nhập serial key:</label>
+                        <input
+                            type="text"
+                            id="serial-input"
+                            class="form-input"
+                            data-i18n-placeholder="download.modal.serial.placeholder"
+                            placeholder="VD: 1a2b3c4d"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="email-input" data-i18n="download.modal.email.label">Email của bạn:</label>
+                        <input
+                            type="email"
+                            id="email-input"
+                            class="form-input"
+                            data-i18n-placeholder="download.modal.email.placeholder"
+                            placeholder="email@example.com"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="device-input" data-i18n="download.modal.device.label">Thiết bị:</label>
+                        <input
+                            type="text"
+                            id="device-input"
+                            class="form-input"
+                            data-i18n-placeholder="download.modal.device.placeholder"
+                            placeholder="VD: Redmi k60 pro - socrates"
+                            required
+                        />
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" data-i18n="download.modal.submit">Đăng ký</button>
+                        <button type="button" class="btn btn-outline" id="modal-cancel" data-i18n="download.modal.cancel">Hủy</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="dev-info" data-i18n="footer.copyright">© 2025 HyperUR Hub. All rights reserved.</p>
+        <p>Dev ROM: <a href="https://t.me/Usagi79" target="_blank" style="color:#60a5fa;">@Usagi79</a> • <a href="https://t.me/lcnguy06" target="_blank" style="color:#60a5fa;">@lcnguy06</a></p>
+        <p class="contact-msg" data-i18n="footer.contact">Nếu có lỗi về ROM, vui lòng liên hệ Dev ngay để được khắc phục kịp thời.</p>
+    </footer>
+
+    <script>
+    (function() {
+      // ========================================
+      // Device list - Snapdragon only (MTK excluded)
+      // ========================================
+      const devices = [
+        // Xiaomi 11 Series
+        { name: 'Xiaomi 11', codeName: 'VENUS' },
+        { name: 'Xiaomi 11 Pro', codeName: 'STAR' },
+        { name: 'Xiaomi 11 Ultra', codeName: 'STAR' },
+        { name: 'Xiaomi 11T Pro', codeName: 'VILI' },
+        { name: 'Xiaomi 11 Lite 5G NE', codeName: 'LISA' },
+
+        // Xiaomi 12 Series
+        { name: 'Xiaomi 12', codeName: 'CUPID' },
+        { name: 'Xiaomi 12 Pro', codeName: 'ZEUS' },
+        { name: 'Xiaomi 12 Lite', codeName: 'TAOYAO' },
+        { name: 'Xiaomi 12S', codeName: 'MAYFLY' },
+        { name: 'Xiaomi 12S Pro', codeName: 'UNICORN' },
+        { name: 'Xiaomi 12S Ultra', codeName: 'THOR' },
+
+        // Xiaomi 13 Series
+        { name: 'Xiaomi 13', codeName: 'FUXI' },
+        { name: 'Xiaomi 13 Pro', codeName: 'NUWA' },
+        { name: 'Xiaomi 13 Ultra', codeName: 'ISHTAR' },
+
+        // Xiaomi 14 Series
+        { name: 'Xiaomi 14', codeName: 'HOUJI' },
+        { name: 'Xiaomi 14 Pro / Ti / Titanium Satellite Edition', codeName: 'SHENNONG' },
+        { name: 'Xiaomi 14 Ultra / Ti', codeName: 'AURORA' },
+
+        // Xiaomi 15 Series
+        { name: 'Xiaomi 15', codeName: 'DADA' },
+        { name: 'Xiaomi 15 Pro', codeName: 'HAOTIAN' },
+        { name: 'Xiaomi 15 Ultra', codeName: 'XUANYUAN' },
+
+        // Xiaomi 17 Series
+        { name: 'Xiaomi 17', codeName: 'PUDDING' },
+        { name: 'Xiaomi 17 Pro', codeName: 'PANDORA' },
+        { name: 'Xiaomi 17 Pro Max', codeName: 'POPSICLE' },
+        { name: 'Xiaomi 17 Ultra', codeName: 'NEZHA' },
+
+        // Xiaomi Pad Series
+        { name: 'Xiaomi Pad 6', codeName: 'PIPA' },
+        { name: 'Xiaomi Pad 6 Pro', codeName: 'LIUQIN' },
+        { name: 'Xiaomi Pad 6 Max 14', codeName: 'YUDI' },
+        { name: 'Xiaomi Pad 6S Pro 12.4', codeName: 'SHENG' },
+        { name: 'Xiaomi Pad 7', codeName: 'UKE' },
+        { name: 'Xiaomi Pad 7 Pro', codeName: 'MUYU' },
+        { name: 'Xiaomi Pad 8', codeName: 'YUPEI' },
+        { name: 'Xiaomi Pad 8 Pro', codeName: 'PIANO' },
+
+        // Xiaomi MIX Series
+        { name: 'Xiaomi MIX 4', codeName: 'ODIN' },
+        { name: 'Xiaomi MIX Fold 2', codeName: 'ZIZHAN' },
+        { name: 'Xiaomi MIX Fold 3', codeName: 'BABYLON' },
+        { name: 'Xiaomi MIX Fold 4', codeName: 'GOKU' },
+
+        // Xiaomi Civi Series
+        { name: 'Xiaomi Civi 2', codeName: 'ZIYI' },
+        { name: 'Xiaomi Civi 4 Pro', codeName: 'CHENFENG' },
+
+        // Redmi Series
+        { name: 'Redmi 12 / 12R 5G / Redmi Note 12R', codeName: 'SKY' },
+        { name: 'Redmi 14R 5G', codeName: 'FLAME' },
+
+        // Redmi Note 12 Series
+        { name: 'Redmi Note 12 5G / Note 12R Pro', codeName: 'SUNSTONE' },
+        { name: 'Redmi Note 12 Pro Speed Edition', codeName: 'REDWOOD' },
+        { name: 'Redmi Note 12 Turbo', codeName: 'MARBLE' },
+        { name: 'Redmi Note 12 4G', codeName: 'TAPAS' },
+        { name: 'Redmi Note 12 4G NFC', codeName: 'TOPAZ' },
+        { name: 'Redmi Note 12 Pro 4G', codeName: 'SWEET_K6A' },
+
+        // Redmi Note 13 Series
+        { name: 'Redmi Note 13R 5G', codeName: 'BREEZE' },
+        { name: 'Redmi Note 13 Pro', codeName: 'GARNET' },
+        { name: 'Redmi Note 13 Global / NFC', codeName: 'SAPPHIRE' },
+
+        // Redmi Note 14 Series
+        { name: 'Redmi Note 14 Pro+ 5G', codeName: 'AMETHYST' },
+
+        // Redmi Turbo Series
+        { name: 'Redmi Turbo 3', codeName: 'PERIDOT' },
+        { name: 'Redmi Turbo 4 Pro', codeName: 'ONYX' },
+
+        // Redmi K50 Series
+        { name: 'Redmi K50 Gaming Edition', codeName: 'INGRES' },
+        { name: 'Redmi K50 Ultra', codeName: 'DITING' },
+
+        // Redmi K60 Series
+        { name: 'Redmi K60', codeName: 'MONDRIAN' },
+        { name: 'Redmi K60 Pro', codeName: 'SOCRATES' },
+
+        // Redmi K70 Series
+        { name: 'Redmi K70', codeName: 'VERMEER' },
+        { name: 'Redmi K70 Pro', codeName: 'MANET' },
+
+        // Redmi K80 Series
+        { name: 'Redmi K80', codeName: 'ZORN' },
+        { name: 'Redmi K80 Pro', codeName: 'MIRO' },
+
+        // Redmi Pad Series
+        { name: 'Redmi Pad SE', codeName: 'XUN' },
+        { name: 'Redmi Pad Pro / Harry Potter Edition', codeName: 'DIZI' },
+        { name: 'Redmi Pad Pro 5G', codeName: 'RUAN' },
+
+        // POCO Series
+        { name: 'POCO X5 5G', codeName: 'MOONSTONE' },
+        { name: 'Redmi K90 Pro Max / POCO F8 Ultra', codeName: 'MYRON' },
+        { name: 'Redmi K40S / POCO F4', codeName: 'MUNCH' },
+        { name: 'Redmi K40 Pro / K40 Pro+ / POCO F3 Pro / Mi 11i', codeName: 'HAYDN' }
+      ];
+
+      // ========================================
+      // ROM Data – multiple ROMs per device
+      // ========================================
+      const deviceROMs = {
+        'AMETHYST':   [{ link:'https://drive.google.com/drive/folders/1yqOC1ILx5pa7qeUpoIu2ZdC2tYYib8T4?usp=drive_link' }],
+        'AURORA':     [{ link:'https://drive.google.com/drive/folders/16UIK88mMVYMp4nEVnQIm_Qlsia9mripS?usp=drive_link' }],
+        'BABYLON':    [{ link:'https://drive.google.com/drive/folders/1Wu4QpULDuBDTm-OLAri1BgERTY7frbvP?usp=drive_link' }],
+        // BERYL (MTK) - removed
+        'BREEZE':     [{ link:'https://drive.google.com/drive/folders/1SKtkAzx8iyUaqiClCkUcACH_UIBOdMS8?usp=drive_link' }],
+        'CHENFENG':   [{ link:'https://drive.google.com/drive/folders/1jLkD8tFdYArysgu5XBgHL3XQLlXTVn_H?usp=drive_link' }],
+        'CUPID':      [{ link:'https://drive.google.com/drive/folders/1l2-Jf99FBWLwHXJ-xhRYea72SvutAe3i?usp=drive_link' }],
+        'DADA':       [{ link:'https://drive.google.com/drive/folders/1NpPT0UEEc_ilX5tYLdUunE_EWfWhuGYW?usp=drive_link' }],
+        'DITING':     [{ link:'https://drive.google.com/drive/folders/1MNF-6nPivMi3KtNYMG3OhY97QdmGQla6?usp=drive_link' }],
+        'DIZI':       [{ link:'https://drive.google.com/drive/folders/1buSE5bNeIDvdKAbaSuX5c3JL6abMnqu7?usp=drive_link' }],
+        'FLAME':      [{ link:'https://drive.google.com/drive/folders/1QN00gmoCsSJRoI0DiZTm48f_k3DyDrfb?usp=drive_link' }],
+        'FUXI':       [{ link:'https://drive.google.com/drive/folders/1mvAPQKSv8xLzf2OzTjwmkQn1y-Q-aQLV?usp=drive_link' }],
+        'GOKU':       [{ link:'https://drive.google.com/drive/folders/1N0doYOq73-nkqBTdxK2_tTG_L4VRsfYQ?usp=drive_link' }],
+        'GARNET':     [{ link:'https://drive.google.com/drive/folders/17Vgoz3hfCtk3Qe_Cxr0ZiEvpBbxnABxw?usp=drive_link' }],
+        'HAOTIAN':    [{ link:'https://drive.google.com/drive/folders/1-SnLEfsCvaltk8sQlydr7aHexrlHuHXs?usp=drive_link' }],
+        'HOUJI':      [{ link:'https://drive.google.com/drive/folders/1JEu8FdZtSUuSe4LZ6Dj3PaOr_dz_aHq-?usp=drive_link' }],
+        'INGRES':     [{ link:'https://drive.google.com/drive/folders/1tQtJoLsnTGEK0fsVie7KS1ytEkIOjQPR?usp=drive_link' }],
+        'ISHTAR':     [{ link:'https://drive.google.com/drive/folders/1bemdKSPVH8qA1W3qMYnQ7ouvVI9CB6LY?usp=drive_link' }],
+        'LISA':       [{ link:'https://drive.google.com/drive/folders/1MY7Q3syZE5ZsKJtxtD7jID5hzRiGE-QK?usp=drive_link' }],
+        'LIUQIN':     [{ link:'https://drive.google.com/drive/folders/1VjnBR0gQkM-poTrCUQHN-JXkg3MMqZ69?usp=drive_link' }],
+        'MANET':      [{ link:'https://drive.google.com/drive/folders/1rSwOpFBHQlIlaUfSarSJgzJ6_f3ct4VT?usp=drive_link' }],
+        'MARBLE':     [{ link:'https://drive.google.com/drive/folders/1Cww1Pg4JegRxEsIPqgAxiMAqaOm_fULk?usp=drive_link' }],
+        'MAYFLY':     [{ link:'https://drive.google.com/drive/folders/15GZ__lFFNqSSxKthRB1vYIXi8zzyETaQ?usp=drive_link' }],
+        'MIRO':       [{ link:'https://drive.google.com/drive/folders/1ThZxuuZc3DWyHu4SF1kJUPizuceuVZtK?usp=drive_link' }],
+        'MYRON':      [{ link:'https://drive.google.com/drive/folders/1bjHGh6I_vioEPizdQj76thcY4XbABl8j?usp=drive_link' }],
+        'MONDRIAN':   [{ link:'https://drive.google.com/drive/folders/1SevuGWmho7oaBx4S2AQrMtELZEdxwxsT?usp=drive_link' }],
+        'MOONSTONE':  [{ link:'https://drive.google.com/drive/folders/1YbL-bivM2rDAG3ueDo77yvGGM1fcHjWs?usp=drive_link' }],
+        'MUYU':       [{ link:'https://drive.google.com/drive/folders/16IwD5yyx77zK1ZM5D8p7HNad0LE1wqmN?usp=drive_link' }],
+        'NEZHA':      [{ link:'https://drive.google.com/drive/folders/1ZssfphlWZNsbYnjrcioyYfxVtB8wG011?usp=drive_link' }],
+        'PIANO':      [{ link:'https://drive.google.com/drive/folders/1vjoTlyZTt7b7uLyk6eEn65FEpkc7PyvQ?usp=drive_link' }],
+        'YUPEI':      [{ link:'https://drive.google.com/drive/folders/1g3GIhudWef82xw6NeR7drTEAKT6iPLfA?usp=drive_link' }],
+        'NUWA':       [{ link:'https://drive.google.com/drive/folders/1M_SHtq8Wn-kicutQzKWQbeoszu6JQu05?usp=drive_link' }],
+        'ODIN':       [{ link:'https://drive.google.com/drive/folders/17mdwxKhpDZ0oM0JTriKsJlLyglWq_faw?usp=drive_link' }],
+        'ONYX':       [{ link:'https://drive.google.com/drive/folders/1fnUtLfNKja9zAsF8345YxfUtyOWTW_Fm?usp=drive_link' }],
+        'PANDORA':    [{ link:'https://drive.google.com/drive/folders/19wZGaXCVWLW_Z_dsYQ6H7GfFdW3-VLfT?usp=drive_link' }],
+        'PERIDOT':    [{ link:'https://drive.google.com/drive/folders/1XgXnosPU2zqxMkaTZWzgYP8ztm6Y0B-W?usp=drive_link' }],
+        'PIPA':       [{ link:'https://drive.google.com/drive/folders/1OPpWxuJUWtR4hoy5R8R1Y75r16Y2EZ77?usp=drive_link' }],
+        'POPSICLE':   [{ link:'https://drive.google.com/drive/folders/1QmGQ_a7ZKiRjwT7liU--C_AS1vWeecW9?usp=drive_link' }],
+        'PUDDING':    [{ link:'https://drive.google.com/drive/folders/1Ks9vx9EAASVa60_cAc2z_VDEqeEptH4j?usp=drive_link' }],
+        'REDWOOD':    [{ link:'https://drive.google.com/drive/folders/1QYH46WV2WmzT4KvQzcqdCAlJTWa-LRPg?usp=drive_link' }],
+        'RUAN':       [{ link:'https://drive.google.com/drive/folders/1ozyHyD1rby0Mo_V2IXJR_G5TH0G2C3pC?usp=drive_link' }],
+        'SAPPHIRE':   [{ link:'https://drive.google.com/drive/folders/1bphjmWgbj-KNyX1Wcyxj8uqMOkovvlV7?usp=drive_link' }],
+        'SHENG':      [{ link:'https://drive.google.com/drive/folders/1paJsBity2HG1TaJSwWzLqcSGBImtB6Qs?usp=drive_link' }],
+        'SHENNONG':   [{ link:'https://drive.google.com/drive/folders/1Ck_JRSeQIct5-t2IaggXhcpznZcKLrGi?usp=drive_link' }],
+        'SKY':        [{ link:'https://drive.google.com/drive/folders/1dlGgTqiPuqiVX3Ufm38RIKEbZHMl9L0f?usp=drive_link' }],
+        'SOCRATES':   [{ link:'https://drive.google.com/drive/folders/1T61L0cIFg3jHy7oCkO-Vy9wLg4Oh6tQL?usp=drive_link' }],
+        'STAR':       [{ link:'https://drive.google.com/drive/folders/1m_o6U12dAmyjmuEwLtgsQfX7HSKFjw53?usp=drive_link' }],
+        'SUNSTONE':   [{ link:'https://drive.google.com/drive/folders/1FghvvarDhZxWpMbEt9WY7UvfDO-ambAt?usp=drive_link' }],
+        'SWEET_K6A':  [{ link:'https://drive.google.com/drive/folders/1C-1f-xC8wAdG7TfSfXgYvNYZg27YHPZg?usp=drive_link' }],
+        'TAPAS':      [{ link:'https://drive.google.com/drive/folders/1rsbOJtbi4-syLW4_ZutQoYndzVjuTCRi?usp=drive_link' }],
+        'TAOYAO':     [{ link:'https://drive.google.com/drive/folders/1pM8U8_hF9uIGzYzSdn3_3uL_Yh9X5jTp?usp=drive_link' }],
+        'THOR':       [{ link:'https://drive.google.com/drive/folders/1GG1VAXpaqW6ozq3T5z5TFOJqYSFWgpiI?usp=drive_link' }],
+        'TOPAZ':      [{ link:'https://drive.google.com/drive/folders/1YYswiyzfqyaTYo3h5BrSPX0865x6bmRR?usp=drive_link' }],
+        'UKE':        [{ link:'https://drive.google.com/drive/folders/1qXQwhvkMCImTS-hylWsosYXrG9pFPq8-?usp=drive_link' }],
+        'UNICORN':    [{ link:'https://drive.google.com/drive/folders/1uUMlDn8adrXWc4Nm9tLxgctdWszr8VLj?usp=drive_link' }],
+        'VENUS':      [{ link:'https://drive.google.com/drive/folders/1dg-BH1o-7L1NXpoYZ7iqQ2gihsuILJjH?usp=drive_link' }],
+        'VILI':       [{ link:'https://drive.google.com/drive/folders/1Y4GYvxAA8BgZAEv4Gu7-OcuwQsJPPXdo?usp=drive_link' }],
+        'VERMEER':    [{ link:'https://drive.google.com/drive/folders/1fMw0L-osRaujlQ-uZSSNVHBAS5OGL1r_?usp=drive_link' }],
+        'XUN':        [{ link:'https://drive.google.com/drive/folders/1POycmBPru4UacYkE6szXFNu6Z18sHpOo?usp=drive_link' }],
+        'XUANYUAN':   [{ link:'https://drive.google.com/drive/folders/19tU4e4ORBvg79L1KMbbNw1QkSCWh9u8W?usp=drive_link' }],
+        'YUDI':       [{ link:'https://drive.google.com/drive/folders/17ExI6Nb0kgps5bMz4rZjJlyAat64YPKw?usp=drive_link' }],
+        'ZEUS':       [{ link:'https://drive.google.com/drive/folders/1bObSkeDW2zdsrpdQMR0GdF4TBs3mpx0D?usp=drive_link' }],
+        'ZIYI':       [{ link:'https://drive.google.com/drive/folders/1SiocK3rfmk5SR6ImHYZdfZ2asexiIfRr?usp=drive_link' }],
+        'ZIZHAN':     [{ link:'https://drive.google.com/drive/folders/1SEdJzrvfLTHaKENqmxMvVHXUvxW0Zmxf?usp=drive_link' }],
+        'ZORN':       [{ link:'https://drive.google.com/drive/folders/1pPdOcen7lgaB2G93St1CC8B7t_4ApYpw?usp=drive_link' }],
+        'THYME':      [{ link:'https://drive.google.com/drive/folders/1EFGepaixFLH5TZb2qjFnUWhra81u-if_?usp=drive_link' }],
+        'MUNCH':      [{ link:'https://drive.google.com/drive/folders/19JiZioUrVyqCsl3BWv1E0VOFelicYUKb?usp=drive_link' }],
+        'HAYDN':      [{ link:'https://drive.google.com/drive/folders/1iy6bfaWoPbHK9hyIDTgSs9E51n1ryd4x?usp=drive_link' }]
+      };
+
+      // ========================================
+      // Device ROM page logic
+      // ========================================
+      let allDevices = [];
+      let currentCategory = 'all';
+
+      function getDeviceCategory(device) {
+        const name = device.name.toLowerCase();
+        if (name.includes('poco')) return 'poco';
+        if (name.includes('pad')) return 'pad';
+        if (name.includes('mix')) return 'mix';
+        if (name.includes('civi')) return 'civi';
+        if (name.includes('redmi note')) return 'redmi-note';
+        if (name.includes('redmi k') || name.includes('redmi turbo') || name.includes('redmi 14t') || name.includes('redmi 13t')) return 'redmi-k';
+        if (name.includes('redmi')) return 'redmi';
+        if (name.includes('xiaomi')) return 'xiaomi';
+        return 'other';
+      }
+
+      function filterDevicesByCategory(category) {
+        if (category === 'all') return allDevices;
+        return allDevices.filter(device => getDeviceCategory(device) === category);
+      }
+
+      // Pagination state
+      const PER_PAGE = 9;
+      let currentPage = 1;
+      let currentFilteredDevices = [];
+
+      function buildCardHTML(device) {
+        const roms = deviceROMs[device.codeName] || [];
+        const hasROMs = roms.length > 0;
+
+        let badgeClass = 'badge-update', badgeText = 'Dev';
+        if (hasROMs) {
+          badgeClass = 'badge-new';
+          badgeText = roms.length > 1 ? 'Stable x' + roms.length : 'Stable';
+        }
+
+        let fallbackIcon = '📱';
+        const name = device.name.toLowerCase();
+        if (name.includes('pad')) fallbackIcon = '📲';
+        else if (name.includes('ultra') || name.includes('pro max')) fallbackIcon = '⚡';
+        else if (name.includes('pro')) fallbackIcon = '🔥';
+        else if (name.includes('gaming')) fallbackIcon = '🎮';
+        else if (name.includes('fold') || name.includes('flip')) fallbackIcon = '📱';
+        else if (name.includes('lite')) fallbackIcon = '✨';
+
+        const imagePath = 'images/' + device.codeName.toLowerCase() + '.png';
+
+        const romListHTML = hasROMs
+          ? roms.map(rom => '<a href="' + rom.link + '" target="_blank" rel="noopener noreferrer" class="device-card-btn rom-btn">' + (window._t ? window._t['download.btn.download'] : 'Download') + '</a>').join('')
+          : '<div class="rom-coming-soon">' + (window._t ? window._t['download.rom.comingSoon'] : '🔜 ROM đang được phát triển') + '</div>';
+
+        return '<div class="device-card"><div class="device-card-image"><img src="' + imagePath + '" alt="' + device.name + '" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';" loading="lazy"><span class="device-fallback-icon" style="display:none;">' + fallbackIcon + '</span><div class="device-card-status"><span class="device-badge ' + badgeClass + '">' + badgeText + '</span></div></div><div class="device-card-body"><div class="device-card-header"><div><h3>' + device.name + '</h3><span class="device-codename">' + device.codeName + '</span></div></div><div class="rom-list">' + romListHTML + '</div></div></div>';
+      }
+
+      function renderPagination() {
+        const paginationEl = document.getElementById('pagination');
+        if (!paginationEl) return;
+
+        const totalPages = Math.ceil(currentFilteredDevices.length / PER_PAGE);
+
+        if (totalPages <= 1) {
+          paginationEl.innerHTML = '';
+          return;
+        }
+
+        const start = (currentPage - 1) * PER_PAGE + 1;
+        const end = Math.min(currentPage * PER_PAGE, currentFilteredDevices.length);
+        const t = window._t || {};
+        const showingLabel = t['download.pagination.showing'] || 'Hiển thị';
+        const ofLabel = t['download.pagination.of'] || 'của';
+        const deviceLabel = currentFilteredDevices.length > 1 ? (t['download.devices'] || 'thiết bị') : (t['download.device'] || 'thiết bị');
+        const infoText = showingLabel + ' ' + start + '–' + end + ' ' + ofLabel + ' ' + currentFilteredDevices.length + ' ' + deviceLabel;
+
+        let buttons = '';
+
+        // Prev button
+        buttons += '<button class="pagination-btn' + (currentPage === 1 ? ' disabled' : '') + '" data-page="' + (currentPage - 1) + '">‹</button>';
+
+        // Page numbers with ellipsis
+        if (totalPages <= 7) {
+          for (let i = 1; i <= totalPages; i++) {
+            buttons += '<button class="pagination-btn' + (i === currentPage ? ' active' : '') + '" data-page="' + i + '">' + i + '</button>';
+          }
+        } else {
+          // Always show page 1
+          buttons += '<button class="pagination-btn' + (1 === currentPage ? ' active' : '') + '" data-page="1">1</button>';
+
+          if (currentPage > 3) {
+            buttons += '<span class="pagination-ellipsis">…</span>';
+          }
+
+          // Middle pages
+          const startPage = Math.max(2, currentPage - 1);
+          const endPage = Math.min(totalPages - 1, currentPage + 1);
+          for (let i = startPage; i <= endPage; i++) {
+            buttons += '<button class="pagination-btn' + (i === currentPage ? ' active' : '') + '" data-page="' + i + '">' + i + '</button>';
+          }
+
+          if (currentPage < totalPages - 2) {
+            buttons += '<span class="pagination-ellipsis">…</span>';
+          }
+
+          // Always show last page
+          if (totalPages > 1) {
+            buttons += '<button class="pagination-btn' + (totalPages === currentPage ? ' active' : '') + '" data-page="' + totalPages + '">' + totalPages + '</button>';
+          }
+        }
+
+        // Next button
+        buttons += '<button class="pagination-btn' + (currentPage === totalPages ? ' disabled' : '') + '" data-page="' + (currentPage + 1) + '">›</button>';
+
+        paginationEl.innerHTML = '<div class="pagination-info">' + infoText + '</div>' + buttons;
+
+        // Add click handlers
+        paginationEl.querySelectorAll('.pagination-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const page = parseInt(btn.dataset.page, 10);
+            if (isNaN(page) || page < 1 || page > totalPages || btn.classList.contains('disabled')) return;
+            goToPage(page);
+          });
+        });
+      }
+
+      function goToPage(page) {
+        currentPage = page;
+        const slider = document.getElementById('device-slider');
+        if (!slider) return;
+
+        const start = (page - 1) * PER_PAGE;
+        const pageDevices = currentFilteredDevices.slice(start, start + PER_PAGE);
+        slider.innerHTML = pageDevices.map(buildCardHTML).join('');
+        renderPagination();
+        window.scrollTo({ top: slider.offsetTop - 100, behavior: 'smooth' });
+      }
+
+      function renderDeviceSlider(filteredDevices) {
+        const slider = document.getElementById('device-slider');
+        const deviceCountEl = document.getElementById('device-count');
+        const noResultsEl = document.getElementById('no-results');
+        if (!slider) return;
+
+        currentFilteredDevices = filteredDevices || allDevices;
+        currentPage = 1;
+
+        if (deviceCountEl) {
+          const t = window._t || {};
+          const deviceLabel = currentFilteredDevices.length > 1 ? (t['download.devices'] || 'thiết bị') : (t['download.device'] || 'thiết bị');
+          deviceCountEl.innerHTML = currentFilteredDevices.length + ' <span data-i18n="' + (currentFilteredDevices.length > 1 ? 'download.devices' : 'download.device') + '">' + deviceLabel + '</span>';
+        }
+        if (noResultsEl) noResultsEl.style.display = currentFilteredDevices.length === 0 ? 'block' : 'none';
+        if (currentFilteredDevices.length === 0) {
+          slider.innerHTML = '';
+          renderPagination();
+          return;
+        }
+
+        // Render first page
+        const firstPageDevices = currentFilteredDevices.slice(0, PER_PAGE);
+        slider.innerHTML = firstPageDevices.map(buildCardHTML).join('');
+        renderPagination();
+      }
+
+      function initCategoryTabs() {
+        document.querySelectorAll('.category-tab').forEach(tab => {
+          tab.addEventListener('click', () => {
+            document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            currentCategory = tab.dataset.category;
+            const filtered = filterDevicesByCategory(currentCategory);
+            const searchInput = document.getElementById('device-search');
+            if (searchInput && searchInput.value.trim()) {
+              const query = searchInput.value.toLowerCase().trim();
+              renderDeviceSlider(filtered.filter(device => device.name.toLowerCase().includes(query) || device.codeName.toLowerCase().includes(query)));
+            } else {
+              renderDeviceSlider(filtered);
+            }
+          });
+        });
+      }
+
+      function initSearch() {
+        const searchInput = document.getElementById('device-search');
+        if (!searchInput) return;
+        searchInput.addEventListener('input', e => {
+          const query = e.target.value.toLowerCase().trim();
+          let filtered = filterDevicesByCategory(currentCategory);
+          if (query) filtered = filtered.filter(device => device.name.toLowerCase().includes(query) || device.codeName.toLowerCase().includes(query));
+          renderDeviceSlider(filtered);
+        });
+      }
+
+      function initDownloadPage() {
+        if (typeof devices === 'undefined' || !devices || devices.length === 0) {
+          setTimeout(initDownloadPage, 200);
+          return;
+        }
+        allDevices = [...devices].sort((a, b) => a.codeName.localeCompare(b.codeName));
+        renderDeviceSlider();
+        initCategoryTabs();
+        initSearch();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => setTimeout(initDownloadPage, 50));
+      } else {
+        setTimeout(initDownloadPage, 50);
+      }
+    })();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
